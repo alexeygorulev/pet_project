@@ -1,13 +1,17 @@
 <template>
-<div class="wrapper">
-  <Header />
+  <div class="wrapper">
+    <Header />
     <div class="wrapper-content">
-      <div class="container">
-        <h1>hello</h1>
-      </div>
+      <section>
+        <div class="container">
+          <div class="view-sm isCenter">
+            <router-view />
+          </div>
+        </div>
+      </section>
     </div>
-  <Footer />
-</div>
+    <Footer />
+  </div>
 </template>
 
 <script>

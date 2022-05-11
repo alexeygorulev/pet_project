@@ -1,4 +1,5 @@
-export const links = [{
+export const links = [
+  {
   title: 'Home',
   url: '/',
   alias: "home"
@@ -7,7 +8,8 @@ export const links = [{
   title: 'About',
   url: '/about',
   alias: "about"
-},]
+},
+]
 
 export const icons = [{
   url: 'https://vk.com/alexey_gorylev',
