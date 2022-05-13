@@ -30,12 +30,15 @@
       <navigation />
     </template>
   </carousel>
+
+  <Comments/>
+
 </template>
 
 <script>
 import items from '@/seeders/items.js'
-
 import Card from '@/components/UI/Card'
+import Comments from '@/components/comments/_Comments.vue'
 
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Navigation } from 'vue3-carousel'
@@ -45,7 +48,9 @@ export default {
     Card,
     Carousel,
     Slide,
-    Navigation
+    Navigation,
+    Comments
+
   },
   data() {
     return {
@@ -66,6 +71,7 @@ export default {
         }
       }
     }
-  }
+  },
+
 }
 </script>

@@ -6,7 +6,7 @@ import ResumePage from "@/components/pages/resume"
 import NotFoundPage from "@/components/pages/notFound"
 import Item from "@/components/pages/_itemAlias"
 
-const routerHistory = createWebHashHistory();
+const routerHistory = createWebHistory();
 
 const routers = createRouter({
   history: routerHistory ,
