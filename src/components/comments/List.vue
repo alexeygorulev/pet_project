@@ -7,11 +7,17 @@
         <p>{{ note.time }}</p>
         </div>
         <p>{{ note.title }}</p>
+        <div>
         <p style="cursor: pointer;" @click="$emit('onRemove', note.id)">
           &#10005;
         </p>
+        <p style="cursor: pointer;" @click="$emit('update', note.id)">
+          <img class="img__button" src="@/assets/img/pine.png" alt="vk">
+        </p>
+        </div>
       </div>
       <div class="note-footer">
+
       </div>
     </div>
   </div>
@@ -26,14 +32,14 @@ export default {
       required: true
     },
   },
-  mounted() {
-  },
-
-
 }
 </script>
 
 <style lang="scss">
+.img__button{
+  margin-top: 9px;
+  max-width: 18px;
+}
 .notes-list {
   padding: 40px 0;
 }

@@ -10,15 +10,17 @@ class DataService {
   }
 
   setComment(data) {
-    // console.log(data)
     return axios.post(API_URL_COMMENT, data)
 
 
   }
 
-  deleteUser(id) {
-    console.log(id)
-    return axios.delete(`${API_URL_COMMENT}/${id}`)
+  putComment(data) {
+    return axios.put(API_URL_COMMENT, data)
+  }
+
+  deleteComment(data) {
+    return axios.delete(API_URL_COMMENT, {data})
   }
 
 }
