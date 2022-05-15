@@ -1,10 +1,9 @@
 import {createRouter, createWebHistory, createWebHashHistory} from "vue-router";
 
-import HomePage from "@/components/pages/home"
-import AboutPage from "@/components/pages/about"
-import ResumePage from "@/components/pages/resume"
-import NotFoundPage from "@/components/pages/notFound"
-import Item from "@/components/pages/_itemAlias"
+import HomePage from "@/components/pages/home.vue"
+import AboutPage from "@/components/pages/about.vue"
+import NotFoundPage from "@/components/pages/notFound.vue"
+import Item from "@/components/pages/_itemAlias.vue"
 
 const routerHistory = createWebHistory();
 
@@ -20,11 +19,6 @@ const routers = createRouter({
       path: '/about',
       name: "about",
       component: AboutPage,
-    },
-    {
-      path: '/resume',
-      name: "resume",
-      component: ResumePage,
     },
     {
       path: '/:itemAlias',

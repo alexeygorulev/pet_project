@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {icons} from '@/_config.js';
+import {icons} from '@/_config.ts';
 export default {
   data () {
     return {

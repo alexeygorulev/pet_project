@@ -13,8 +13,10 @@
   </div>
 </template>
 
-<script>
 
+
+<script lang="ts">
+import {Form} from "@/types/Comments.interface"
 export default {
   components: {},
   props: {
@@ -28,7 +30,7 @@ export default {
       value: '',
       name: '',
       id: '',
-    }
+    } as Form
   },
   methods: {
     onSubmit() {
@@ -42,8 +44,6 @@ export default {
       this.name = ''
       this.id = this.updateItems.id
     },
-
-
   }
 }
 </script>

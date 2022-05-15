@@ -8,15 +8,18 @@
   :items="notes"  />
 </template>
 
-<script>
-import Form from '@/components/comments/Form.vue'
-import List from '@/components/comments/List.vue'
-import DataService from '@/services/DataService.js'
-import _ from 'lodash'
+<script lang="ts">
+import {CommentsUpdate, Notes} from "@/types/Comments.interface"
+import Form from '@/components/comments/Form.vue';
+import List from '@/components/comments/List.vue';
+import DataService from '@/services/DataService.ts';
+
+
 
 import {defineComponent} from 'vue'
 export default defineComponent ({
-  setup() {},
+
+
 
   components: { Form, List, DataService },
   data() {
@@ -24,19 +27,19 @@ export default defineComponent ({
       updateItems:[
         {
           title: '',
-          name: '',
           id: '',
+          name: '',
           marker: false,
         }
-      ],
+      ] as CommentsUpdate[],
       notes: [
         {
-          title: 'Если вы видите это сообщение - скорее всего вам нужно запустить сервер ',
+          title: 'Если вы видите это сообщение - скорее всего вам нужно запустить сервер:) ',
           name: 'Your name',
+          id: 23,
           time: 'Time',
-          id: '23'
         },
-      ],
+      ] as Notes[],
     }
   },
   mounted() {
@@ -44,8 +47,7 @@ export default defineComponent ({
   },
   watch: {
     notes: {
-      handler(updatedList) {
-        console.log(updatedList)
+      handler() {
         this.getNotes()
       },
       deep: true
@@ -76,7 +78,6 @@ export default defineComponent ({
         const timestamp = this.getFixedTime(dates)
         for (let index = 0; index < dates.length; index++) {
           dates[index].time = timestamp[index]
-          console.log(dates)
         }
         this.notes = dates.reverse()
 
@@ -86,7 +87,7 @@ export default defineComponent ({
     },
 //post request
 //--------------------------------------------------------------
-    handleSubmit(title,name) {
+    handleSubmit(title:string,name:string) {
       const note = [{
         title: title,
         name: name,
@@ -100,7 +101,7 @@ export default defineComponent ({
 
     //---------------------------------------------------------
     //Put Reauest
-    handleUpdate(id) {
+    handleUpdate(id: number) {
       for (let index = 0; index < this.notes.length; index++) {
         if(this.notes[index].id === id) {
           this.updateItems = this.notes[index]
@@ -108,12 +109,12 @@ export default defineComponent ({
         }
       }
     },
-    updateComment(title,name, id) {
+    updateComment(title:string,name:string, id:number) {
       const note = [{
         title: title,
         name: name,
         id: id,
-      }]
+      }] as Notes[]
       DataService.putComment(note)
       .then((res) => {
         console.log(res)
@@ -124,8 +125,7 @@ export default defineComponent ({
 
 //---------------------------------------------------
 // Delete Request
-    Remove(commentId) {
-      console.log(commentId)
+    Remove(commentId: number) {
       const deleteId = [{id: commentId}]
       DataService.deleteComment(deleteId)
       .then((res) => {

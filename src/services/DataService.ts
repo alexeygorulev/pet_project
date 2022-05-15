@@ -9,17 +9,17 @@ class DataService {
     return axios.get(API_URL_COMMENT)
   }
 
-  setComment(data) {
+  setComment(data: any) {
     return axios.post(API_URL_COMMENT, data)
 
 
   }
 
-  putComment(data) {
+  putComment(data: any) {
     return axios.put(API_URL_COMMENT, data)
   }
 
-  deleteComment(data) {
+  deleteComment(data: any) {
     return axios.delete(API_URL_COMMENT, {data})
   }
 
