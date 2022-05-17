@@ -11,8 +11,8 @@
 </template>
 
 
-<script lang="ts">
-import items from '@/seeders/items.ts'
+<script >
+import items from '@/seeders/items'
 export default {
   data () {
     return {
@@ -20,8 +20,8 @@ export default {
     }
   },
   created () {
-    const alias: string = this.$route.params.itemAlias
-    const item: string = items.find(el => el.alias === alias)
+    const alias = this.$route.params.itemAlias
+    const item = items.find(el => el.alias === alias)
     this.item = item
   }
 }

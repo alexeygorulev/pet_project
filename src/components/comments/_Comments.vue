@@ -8,11 +8,10 @@
   :items="notes"  />
 </template>
 
-<script lang="ts">
-import {CommentsUpdate, Notes} from "@/types/Comments.interface"
+<script >
 import Form from '@/components/comments/Form.vue';
 import List from '@/components/comments/List.vue';
-import DataService from '@/services/DataService.ts';
+import DataService from '@/services/DataService';
 
 
 
@@ -31,7 +30,7 @@ export default defineComponent ({
           name: '',
           marker: false,
         }
-      ] as CommentsUpdate[],
+      ],
       notes: [
         {
           title: 'Если вы видите это сообщение - скорее всего вам нужно запустить сервер:) ',
@@ -39,7 +38,7 @@ export default defineComponent ({
           id: 23,
           time: 'Time',
         },
-      ] as Notes[],
+      ],
     }
   },
   mounted() {
@@ -87,7 +86,7 @@ export default defineComponent ({
     },
 //post request
 //--------------------------------------------------------------
-    handleSubmit(title:string,name:string) {
+    handleSubmit(title,name) {
       const note = [{
         title: title,
         name: name,
@@ -101,7 +100,7 @@ export default defineComponent ({
 
     //---------------------------------------------------------
     //Put Reauest
-    handleUpdate(id: number) {
+    handleUpdate(id) {
       for (let index = 0; index < this.notes.length; index++) {
         if(this.notes[index].id === id) {
           this.updateItems = this.notes[index]
@@ -109,12 +108,12 @@ export default defineComponent ({
         }
       }
     },
-    updateComment(title:string,name:string, id:number) {
+    updateComment(title,name, id) {
       const note = [{
         title: title,
         name: name,
         id: id,
-      }] as Notes[]
+      }]
       DataService.putComment(note)
       .then((res) => {
         console.log(res)
@@ -125,7 +124,7 @@ export default defineComponent ({
 
 //---------------------------------------------------
 // Delete Request
-    Remove(commentId: number) {
+    Remove(commentId) {
       const deleteId = [{id: commentId}]
       DataService.deleteComment(deleteId)
       .then((res) => {

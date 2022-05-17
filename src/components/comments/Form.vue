@@ -15,7 +15,7 @@
 
 
 
-<script lang="ts">
+<script >
 import {Form} from "@/types/Comments.interface"
 export default {
   components: {},
@@ -30,7 +30,7 @@ export default {
       value: '',
       name: '',
       id: '',
-    } as Form
+    }
   },
   methods: {
     onSubmit() {

@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {links} from '@/_config.ts';
+import {links} from '@/_config';
 export default {
   data () {
     return {
